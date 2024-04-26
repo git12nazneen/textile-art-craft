@@ -18,7 +18,7 @@ const {name, img, description} = cardItem;
              {cardItem.name}
             </h2>
             <p className="text-gray-800">
-            {cardItem.description.slice(0, 200)}
+            {cardItem.description}
             </p>
           </div>
           <button
