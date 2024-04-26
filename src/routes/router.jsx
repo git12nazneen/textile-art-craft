@@ -6,6 +6,7 @@ import Root from "../layout/Root";
 import MyArtCraft from "../pages/MyArtCraft";
 import AllArtCraft from "../pages/AllArtCraft";
 import AddCraft from "../pages/AddCraft";
+import CartView from "../components/CartView";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         {
             path:'/myArtCraft',
             element:<MyArtCraft></MyArtCraft>
+        },
+        {
+          path:'/cartView/:_id',
+          element:<CartView></CartView>
         }
       ]
     },
