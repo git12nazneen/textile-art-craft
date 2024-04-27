@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 
 const AddCraft = () => {
@@ -16,8 +17,29 @@ const AddCraft = () => {
         const processing_time = form.processing_time.value;
         const customization = form.customization.value;
         const stockStatus = form.stockStatus.value;
-       const info = {firstname, lastname, email, item_name, subcategory_Name, short_description, price, rating, processing_time, customization, stockStatus};
-       console.log(info)
+        const image = form.image.value;
+       const newAddCraft = {firstname, lastname, email, item_name, subcategory_Name, short_description, price, rating, processing_time, customization, stockStatus, image};
+       console.log(newAddCraft);
+
+      //  send data to the server
+      fetch('http://localhost:5000/addCraft',{
+        method:'POST',
+        headers:{
+          'content-type':'application/json'
+        },
+        body: JSON.stringify(newAddCraft)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data)
+        if (data.insertedId) {
+          Swal.fire({
+              title: "Success",
+              text: "Your cart has been added.",
+              icon: "success"
+            });
+      }
+      })
     }
 
   return (
@@ -74,7 +96,19 @@ const AddCraft = () => {
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 p-3"
                 />
               </div>
-              <br />
+              <div className="col-span-full sm:col-span-3">
+              <div className="form-control">
+              <label htmlFor="image" className="text-sm">
+                 Img url
+                </label>
+                    <input
+                     type="text"
+                     placeholder="image url"
+                      name="image"
+                      className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 p-3"  
+                    />
+                    </div>
+              </div>
               <div className="col-span-full sm:col-span-3">
                 <label htmlFor="item_name" className="text-sm">
                   Item name

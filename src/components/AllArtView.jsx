@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 
-const CartView = () => {
+const AllArtView = () => {
   const cart = useLoaderData();
   const {
     image,
@@ -11,6 +11,7 @@ const CartView = () => {
     price,
     rating,
     short_description,
+
     processing_time,
     customization,
     stockStatus,
@@ -26,4 +27,4 @@ const CartView = () => {
   );
 };
 
-export default CartView;
+export default AllArtView;
