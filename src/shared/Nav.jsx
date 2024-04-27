@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import logoImage from "../assets/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 import swal from "sweetalert";
-
+import { Tooltip } from 'react-tooltip'
 const Nav = () => {
   const [theme, setTheme] = useState('light')
   const {user, logOut} = useContext(AuthContext);
@@ -129,7 +129,8 @@ const Nav = () => {
                 <div className="dropdown dropdown-end z-50">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img
+                 <button data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}>
+                 <img
                     src={
                       user?.photoURL
                         ? user.photoURL
@@ -137,6 +138,8 @@ const Nav = () => {
                     }
                     alt="User"
                   />
+                 </button>
+                 <Tooltip id="my-tooltip"></Tooltip>
                 </div>
               </label>
               <ul
