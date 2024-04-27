@@ -8,6 +8,8 @@ import AllArtCraft from "../pages/AllArtCraft";
 import AddCraft from "../pages/AddCraft";
 import CartView from "../components/CartView";
 import AllArtView from "../components/AllArtView";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 
 const router = createBrowserRouter([
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
           path:'/cartView/:id',
           element:<CartView></CartView>,
           loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
+        },
+        {
+          path:'/login',
+          element:<Login></Login>
+        },
+        {
+          path:'/register',
+          element:<Register></Register>
         }
       ]
     },
