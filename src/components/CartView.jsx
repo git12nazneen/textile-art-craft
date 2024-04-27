@@ -31,6 +31,17 @@ const CartView = () => {
                 Rating: {rating}*
               </button>
             </div>
+            <div className="flex flex-wrap justify-center text-center mt-3">
+              <div className="bg-white flex-1 mr-3 rounded-sm p-2">
+                <h1>Processing time: {processing_time}</h1>
+              </div>
+              <div className="bg-gray-800 text-white flex-1 mr-3 p-2">
+                <h1>Customization: {customization.slice(0, 15)}</h1>
+              </div>
+              <div className="bg-white flex-1 rounded-sm p-2">
+                <h1>Stock : {stockStatus}</h1>
+              </div>
+            </div>
           </div>
         </div>
         <img

@@ -17,7 +17,7 @@ const CartItem = ({ cardItem }) => {
             <h2 className="text-3xl font-semibold tracking-wide">
               {subcategory_Name}
             </h2>
-            <p className="text-gray-800">{short_description}</p>
+            <p className="text-gray-800">{short_description.slice(0, 100)}</p>
           </div>
           <button
             type="button"

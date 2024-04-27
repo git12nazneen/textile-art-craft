@@ -28,6 +28,17 @@ const AllArtView = () => {
             <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl text-gray-900">
               {short_description}
             </p>
+            <div className="flex flex-wrap justify-center text-center mb-3">
+              <div className="bg-white flex-1 mr-3 rounded-sm p-2">
+                <h1>Processing time: {processing_time}</h1>
+              </div>
+              <div className="bg-gray-800 text-white flex-1 mr-3 p-2">
+                <h1>Customization: {customization.slice(0, 15)}</h1>
+              </div>
+              <div className="bg-white flex-1 rounded-sm p-2">
+                <h1>Stock : {stockStatus}</h1>
+              </div>
+            </div>
             <div className="flex flex-wrap justify-center">
               <button
                 type="button"
