@@ -1,10 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logoImage from "../assets/logo.png";
+import { AuthContext } from "../provider/AuthProvider";
+import swal from "sweetalert";
 
 const Nav = () => {
   const [theme, setTheme] = useState('light')
+  const {user, logOut} = useContext(AuthContext);
+  
+  // logout implement
 
+  const handleSignOut = () =>{
+    logOut().then().catch();
+    swal({
+      text:'logout success',
+      icon:'success'
+    })
+  }
+
+
+  // theme implement
   useEffect( ()=>{
     localStorage.setItem('theme', theme)
     const localTheme = localStorage.getItem('theme')
@@ -68,59 +83,9 @@ const Nav = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        {/* <div className="navbar-end">
-          {user?.email ? (
-            <div className="dropdown dropdown-end z-50">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img
-                    src={
-                      user?.photoURL
-                        ? user.photoURL
-                        : "https://media.istockphoto.com/id/1211308812/vector/account.jpg?s=1024x1024&w=is&k=20&c=VzSNfBzXzlHYLix-nJp3hiLxUjTayBuLJOKsWHY2yj4="
-                    }
-                    alt="User"
-                  />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4"
-              >
-                <li>
-                  <button className="btn btn-sm btn-ghost">
-                    {user?.displayName || "name not found"}
-                  </button>
-                </li>
-                <li className="text-center items-center">
-                  <NavLink to="/profile">Profile</NavLink>
-                </li>
-                <li>
-                  <button
-                    onClick={handleSignOut}
-                    className="btn btn-sm btn-ghost"
-                  >
-                    Logout
-                  </button>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <Link to="/login">
-              <a
-                href="#_"
-                class="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-rose-950 rounded hover:bg-white group"
-              >
-                <span class="w-48 h-48 rounded rotate-[-40deg] bg-purple-600 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-                <span class="relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white">
-                  Login
-                </span>
-              </a>
-            </Link>
-          )}
-        </div> */}
-
+        
         <div className="navbar-end">
+          <div className="mr-3">
           <label className="cursor-pointer grid place-items-center">
             <input
               onChange={handleToggle}
@@ -157,9 +122,53 @@ const Nav = () => {
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           </label>
-          <Link to="/login">
-            <a className="btn">Login</a>
-          </Link>
+          </div>
+          <div>
+            {
+              user?.email ? (
+                <div className="dropdown dropdown-end z-50">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    src={
+                      user?.photoURL
+                        ? user.photoURL
+                        : "https://media.istockphoto.com/id/1211308812/vector/account.jpg?s=1024x1024&w=is&k=20&c=VzSNfBzXzlHYLix-nJp3hiLxUjTayBuLJOKsWHY2yj4="
+                    }
+                    alt="User"
+                  />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+              >
+                <li>
+                  <button className="btn btn-sm btn-ghost">
+                    {user?.displayName || "name not found"}
+                  </button>
+                </li>
+                {/* <li className="text-center items-center">
+                  <NavLink to="/profile">Profile</NavLink>
+                </li> */}
+                <li>
+                  <button
+                    onClick={handleSignOut}
+                    className="btn btn-sm btn-ghost"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
+              ) : (
+                <Link to="/login">
+                <a className="btn btn-outline">Login</a>
+              </Link>
+              )
+            }
+          </div>
+         
         </div>
       </div>
     </div>

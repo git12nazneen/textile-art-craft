@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebook, FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
 import swal from "sweetalert";
@@ -11,8 +11,13 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateUserProfile} = useContext(AuthContext)
     const [showPassword, setShowpassword] = useState(false);
+    const [ success , setSuccess ] = useState('')
+    const [loading, setLoading] = useState(true)
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log('location in login', location)
     const {
         register,
         handleSubmit,

@@ -1,21 +1,71 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../assets/loginban.jpg";
 import { useForm } from "react-hook-form";
 import { FaFacebook, FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
+import { AuthContext } from "../provider/AuthProvider";
+import swal from "sweetalert";
+import { getAuth } from "firebase/auth";
+import { app } from "../../firebase.config";
+
+
 const Login = () => {
+  const {signIn , googleLogin, githubLogin} = useContext(AuthContext)
+  const auth = getAuth(app);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log("location in login", location);
 	const [showEye, setShowEye] = useState(false);
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	  } = useForm()
 	
-	  const onSubmit = (data) => console.log(data)
+	  const onSubmit = (data) => {
+      const {email, password} = data;
+
+      signIn(email, password)
+      .then(result =>{
+        swal({
+          text: "Success fully login",
+          icon: "success",
+        });
+        console.log(result.user);
+        navigate(location?.state ? location.state : '/');
+      })
+      .catch((error) => {
+        swal({
+          text: "Sign in failed!",
+          icon: "error",
+        });
+        console.error(error);
+        // setError(error.message)
+      });
+    }
 	
-	  console.log(watch("example")) 
+    const handleSocialLogin = (socialProvider) =>{
+      socialProvider()
+      .then((result) => {
+        if (result.user) {
+          swal({
+            text: "Success fully login",
+            icon: "success",
+          });
+          navigate(location?.state ? location.state : "/");
+        }
+      })
+      .catch((error) => {
+        swal({
+          text: "Sign in failed!",
+          icon: "error",
+        });
+        console.error(error);
+        // setError(error.message)
+      });
+    }
+	
 
   return (
     <div>

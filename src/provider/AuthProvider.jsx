@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {createUserWithEmailAndPassword,   getAuth,   onAuthStateChanged,   signInWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword,   getAuth,   onAuthStateChanged,   signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from '../../firebase.config';
+import swal from 'sweetalert';
 export const AuthContext = createContext(null)
 const auth = getAuth(app);
 
@@ -19,6 +20,38 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    // google login
+    const googleLogin = () =>{
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
+    }
+
+    // github login
+    const githubLogin = () =>{
+        setLoading(true)
+        return signInWithPopup(auth, githubProvider)
+    }
+
+        // update user profile
+        const updateUserProfile = (name, image) =>{
+            return updateProfile(auth.currentUser, {
+                 displayName: name,
+                  photoURL: image
+               }).then(() => {
+                 // Profile updated!
+                 // ...
+               }).catch((error) => {
+                 // An error occurred
+                 // ...
+               });
+         }
+        
+         const logOut = () =>{
+            return signOut(auth)
+            swal('logout successfully')
+         }
+
+
      // observer
      useEffect( ()=>{
         const unSubscribe = onAuthStateChanged(auth, createUser =>{
@@ -36,7 +69,11 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         signIn,
-        loading
+        loading,
+        updateUserProfile,
+        googleLogin,
+        githubLogin,
+        logOut
     }
     return (
         <AuthContext.Provider value={authInfo}>
