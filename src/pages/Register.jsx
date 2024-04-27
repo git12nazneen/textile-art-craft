@@ -1,21 +1,80 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
+import swal from "sweetalert";
+import { AuthContext } from "../provider/AuthProvider";
+
+
+
 const Register = () => {
+
+    const {createUser} = useContext(AuthContext)
     const [showPassword, setShowpassword] = useState(false);
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
       } = useForm()
     
-      const onSubmit = (data) => console.log(data)
-    
-      console.log(watch("example")) 
+      const onSubmit = (data) => {
+   
+        const {email, password ,image, name} = data;
+        setLoading(true);
+        if(password.length < 6){
+            swal({
+                text: "Length must be at least 6 character",
+                icon: "error"
+              });
+            return;
+        }
+        if(!/[A-Z]/.test(password)){
+          
+            swal({
+                text: "Your password should have one uppercase character",
+                icon: "error"
+              });
+            return;
+        }
+        if(!/[a-z]/.test(password)){
+            
 
+            swal({
+                text: "Your password should have one lowercase character",
+                icon: "error"
+              });
+            return;
+        }
+        // create user and update profile
+        createUser(email, password, image, name)
+        .then(result =>{
+            updateUserProfile(name, image)
+            .then( ()=>{
+                if(result.user){
+                    swal({
+                        text: "Success fully login",
+                        icon: "success"
+                      });
+                    navigate(location?.state ? location.state : '/');
+                }
+            })
+			
+		})
+        .catch(error => {
+            swal({
+                text: "Sign in failed!",
+                icon: "error"
+              });
+            console.error('Sign in error:', error);
+          })
+          
+            // reset error and success
+            setSuccess('');
+            setError('');
+    }
+    
   return (
     <div>
       <div

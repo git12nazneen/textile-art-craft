@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import CartItem from "./CartItem";
+import { useLoaderData } from "react-router-dom";
 
 const CardItems = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/product")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+const crafts = useLoaderData()
+
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/craft")
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data));
+  // }, []);
 
   return (
     <div className="mx-auto">
       <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3 bg-gray-100 mx-auto">
-        {products.slice(0, 6).map((cardItem) => (
+        {crafts.slice(0, 6).map((cardItem) => (
           <CartItem key={cardItem._id} cardItem={cardItem}></CartItem>
         ))}
       </div>
