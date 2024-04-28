@@ -40,7 +40,7 @@ const CartUpdated = () => {
 
     return (
         <div>
-            loaded craft :   {loadedCraft. item_name}
+            {/* loaded craft :   {loadedCraft. item_name} */}
             <form
           onSubmit={handleUpdate}  
           noValidate=""
@@ -55,10 +55,7 @@ const CartUpdated = () => {
               </p>
             </div>
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-              
-             
-
-             
+               
               <div className="col-span-full sm:col-span-3">
               <div className="col-span-full">
                 <label htmlFor="short description" className="text-sm">
@@ -112,19 +109,6 @@ const CartUpdated = () => {
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 p-3"
                 />
               </div>
-              {/* <div className="col-span-full">
-                <label htmlFor="short description" className="text-sm">
-                  Short description
-                </label>
-                <input
-                  id="short_description"
-                  defaultValue={loadedCraft?.short_description}
-                  type="text"
-                  name="short_description"
-                  placeholder="short description"
-                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 p-3"
-                />
-              </div> */}
               <div className="col-span-full sm:col-span-2">
                 <label htmlFor="price" className="text-sm">
                   Price

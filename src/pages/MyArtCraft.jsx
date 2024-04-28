@@ -1,14 +1,23 @@
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MyCard from '../components/MyCard';
 import LotiReact from '../components/LotiReact';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../provider/AuthProvider';
 
 const MyArtCraft = () => {
+    const {user} = useContext(AuthContext)
     const [cards, setCards] = useState([]);
     const myCards = useLoaderData();
+    const [currentUserEmail, setCurrentUserEmail] = useState(null)
+
+    useEffect(()=>{
+        setCurrentUserEmail(user.email)
+    }, [setCurrentUserEmail])
+
+    console.log(currentUserEmail)
 
     useEffect(() => {
         setCards(myCards);
@@ -54,7 +63,7 @@ const MyArtCraft = () => {
         <div className=' max-w-6xl mx-auto bg-white my-10'>
             <LotiReact></LotiReact>
             <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-2  mx-auto">
-                {cards.map(card => (
+                {cards.map(card => card.email === user.email && (
                     <MyCard
                         key={card._id}
                         myCard={card}

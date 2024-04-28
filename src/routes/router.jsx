@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/myArtCraft',
-            element:<MyArtCraft></MyArtCraft>,
+            element:<Privateroute><MyArtCraft></MyArtCraft></Privateroute>,
             loader:()=> fetch('http://localhost:5000/addCraft')
         },
         {
