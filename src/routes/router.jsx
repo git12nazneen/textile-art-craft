@@ -10,6 +10,7 @@ import CartView from "../components/CartView";
 import AllArtView from "../components/AllArtView";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import CartUpdated from "../components/CartUpdated";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
             path:'/myArtCraft',
             element:<MyArtCraft></MyArtCraft>,
             loader:()=> fetch('http://localhost:5000/addCraft')
+        },
+        {
+          path:'/cartUpdated/:id',
+          element:<CartUpdated></CartUpdated>,
+          loader: ({params}) => fetch(`http://localhost:5000/addCraft/${params.id}`)
         },
         {
           path:'/craft/:id',

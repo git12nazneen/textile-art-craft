@@ -4,7 +4,10 @@ import MyCard from '../components/MyCard';
 import LotiReact from '../components/LotiReact';
 
 const MyArtCraft = () => {
+
     const myCards = useLoaderData();
+    
+
     return (
         <div className=' max-w-6xl mx-auto bg-white my-10'>
             <LotiReact></LotiReact>
