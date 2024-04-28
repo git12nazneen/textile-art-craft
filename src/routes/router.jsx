@@ -11,6 +11,7 @@ import AllArtView from "../components/AllArtView";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import CartUpdated from "../components/CartUpdated";
+import Privateroute from "./Privateroute";
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/addCraft',
-            element:<AddCraft></AddCraft>,
+            element:<Privateroute><AddCraft></AddCraft></Privateroute>,
         },
         {
             path:'/myArtCraft',
@@ -40,12 +41,12 @@ const router = createBrowserRouter([
         },
         {
           path:'/cartUpdated/:id',
-          element:<CartUpdated></CartUpdated>,
+          element:<Privateroute><CartUpdated></CartUpdated></Privateroute>,
           loader: ({params}) => fetch(`http://localhost:5000/addCraft/${params.id}`)
         },
         {
           path:'/craft/:id',
-          element:<AllArtView></AllArtView>,
+          element:<Privateroute><AllArtView></AllArtView></Privateroute>,
           loader: ({params})=> fetch(`http://localhost:5000/craft/${params.id}`)
         },
         {
