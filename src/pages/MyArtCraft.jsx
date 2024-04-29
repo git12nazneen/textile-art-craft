@@ -13,6 +13,7 @@ const MyArtCraft = () => {
     const myCards = useLoaderData();
     const [currentUserEmail, setCurrentUserEmail] = useState(null)
 
+
     useEffect(()=>{
         setCurrentUserEmail(user.email)
     }, [setCurrentUserEmail])
@@ -23,7 +24,7 @@ const MyArtCraft = () => {
         setCards(myCards);
     }, [myCards]);
 
- 
+
 
     const handleDelete = _id =>{
             console.log('delete',_id);
@@ -62,6 +63,7 @@ const MyArtCraft = () => {
     return (
         <div className=' max-w-6xl mx-auto bg-white my-10'>
             <LotiReact></LotiReact>
+       
             <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-2  mx-auto">
                 {cards.map(card => card.email === user.email && (
                     <MyCard
@@ -71,8 +73,28 @@ const MyArtCraft = () => {
                     />
                 ))}
             </div>
+           
         </div>
     );
 };
 
 export default MyArtCraft;
+
+
+
+    // const filteredCrafts = filter === "All" ? cards : cards.filter(card => card.customization === filter);
+    // const [filter, setFilter] = useState("All");
+     {/* <div>
+           
+           <label className="text-xl font-bold text-center" htmlFor="customization">Filter by Customization: </label>
+                   <select
+                       id="customization"
+                       value={filter}
+                       onChange={(e) => setFilter(e.target.value)}
+                   >
+                       <option value="All">All</option>
+                       <option value="Yes">Yes</option>
+                       <option value="No">No</option>
+                   </select>
+                 
+           </div> */}

@@ -4,13 +4,16 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+console.log('inside firebase config', import.meta.env.VITE_PASS)
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAywybZ7GY9k4cx6g9mRLOFYnm-vp2JxLU",
-  authDomain: "textile-with-mongo.firebaseapp.com",
-  projectId: "textile-with-mongo",
-  storageBucket: "textile-with-mongo.appspot.com",
-  messagingSenderId: "354554948245",
-  appId: "1:354554948245:web:8983d2819b9d232f40099c"
+  apiKey:import.meta.env.VITE_APIKEY ,
+  authDomain:import.meta.env.VITE_AUTHDOMAIN,
+  projectId:import.meta.env.VITE_PROJECTID,
+  storageBucket:import.meta.env.VITE_STORAGEBUCKET ,
+  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID ,
+  appId:import.meta.env.VITE_APPID ,
 };
 
 // Initialize Firebase

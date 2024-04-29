@@ -12,6 +12,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import CartUpdated from "../components/CartUpdated";
 import Privateroute from "./Privateroute";
+import Subcategory from "../components/Subcategory";
 
 
 const router = createBrowserRouter([
@@ -61,6 +62,11 @@ const router = createBrowserRouter([
         {
           path:'/register',
           element:<Register></Register>
+        },
+        {
+          path:'/subcategory',
+          element:<Subcategory></Subcategory>,
+          loader:()=> fetch('http://localhost:5000/subcategory')
         }
       ]
     },
