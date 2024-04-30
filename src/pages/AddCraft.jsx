@@ -1,4 +1,6 @@
 import Swal from "sweetalert2";
+import MyHeader from "../components/MyHeader";
+import Pagetitle from "../components/Pagetitle";
 
 
 const AddCraft = () => {
@@ -44,6 +46,8 @@ const AddCraft = () => {
 
   return (
     <div className="my-10">
+       <Pagetitle title='Addcraft'></Pagetitle>
+      <MyHeader></MyHeader>
       <section className="p-10 bg-purple-200 text-gray-900">
         <form
           onSubmit={handleAddCart}  
@@ -113,19 +117,7 @@ const AddCraft = () => {
                 <label htmlFor="item_name" className="text-sm">
                   Item name
                 </label>
-                {/* <input
-                  id="item_name"
-                  name="item_name"
-                  type="text"
-                  placeholder="item_name"
-                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 p-3"
-                /> */}
-                {/* <select name='item_name' className="select select-bordered w-full"
-                                    >
-                                    <option disabled >item_name</option>
-                                    <option selected={data.countryname === 'Bangladesh'}>Bangladesh</option>
-                                    <option selected={data.countryname === 'Thailand'}>Thailand</option>
-                                   </select> */}
+               
                  <input
 
                   id="item_name"
@@ -139,13 +131,21 @@ const AddCraft = () => {
                 <label htmlFor="subcategory_Name" className="text-sm">
                   Subcategory Name
                 </label>
-                <input
-                  id="subcategory_Name"
+                <select id="subcategory_Name"
                   type="text"
                   name="subcategory_Name"
-                  placeholder="subcategory_name"
+                  placeholder="subcategory_Name"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 p-3"
-                />
+               
+                >
+                      <option value="Bedwork">Bedwork</option>
+                      <option value="Embroidery">Embroidery</option>
+                      <option value="Knitting & Crocheting">Knitting & Crocheting</option>
+                      <option value="Quilting">Quilting</option>
+                      <option value="Tie-Dyeing">Tie-Dyeing</option>
+                      <option value="Macrame">Macrame</option>
+                    </select>
+                
               </div>
               <div className="col-span-full">
                 <label htmlFor="short description" className="text-sm">
@@ -199,13 +199,17 @@ const AddCraft = () => {
                 <label htmlFor="price" className="text-sm">
                   Customization
                 </label>
-                <input
-                  id="customization"
+                <select id="customization"
                   type="text"
                   name="customization"
                   placeholder="customization"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 p-3"
-                />
+               
+                >
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                
               </div>
               <div className="col-span-full sm:col-span-3">
                 <label htmlFor="stockStatus" className="text-sm">

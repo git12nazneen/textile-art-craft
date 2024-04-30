@@ -6,6 +6,7 @@ import MyCard from '../components/MyCard';
 import LotiReact from '../components/LotiReact';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
+import Pagetitle from '../components/Pagetitle';
 
 const MyArtCraft = () => {
     const {user} = useContext(AuthContext)
@@ -34,6 +35,13 @@ const MyArtCraft = () => {
 //         setCards(myCards.filter(card => card.customization === filterOption));
 //     }
 // }, [filterOption, myCards]);
+
+
+// useEffect(()=>{
+//     const sortedCard = myCards.sort((a,b)=>{
+//         return a.customization.localCompare(b.customization)
+//     })
+// }, [myCards])
 
 
     const handleDelete = _id =>{
@@ -89,6 +97,7 @@ const MyArtCraft = () => {
 
     return (
         <div className=' max-w-6xl mx-auto bg-white my-10'>
+             <Pagetitle title='My craft'></Pagetitle>
             <LotiReact></LotiReact>
        
 

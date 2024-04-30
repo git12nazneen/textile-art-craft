@@ -51,7 +51,7 @@ const Nav = () => {
     </>
   );
   return (
-    <div className="max-w-6xl mx-auto mb-20">
+    <div className="max-w-6xl mx-auto mb-24">
       <div className="navbar text-black py-2 lg:px-10 bg-purple-400 bg-opacity-60 fixed top-0 left-0 right-0 z-50 shadow-lg">
         <div className="navbar-start ">
           <div className="dropdown z-50">

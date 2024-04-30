@@ -34,7 +34,7 @@ And this project user can be added card, and updated and deleted card . Only own
 - Helmet
 
 ## Demo
-Check out the live demo of Textile Art store [here](https://industrial-real-state.web.app/)
+Check out the live demo of Textile Art store [here](https://textile-with-mongo.web.app/)
 
 ## Installation:
 1. Clone the repository:

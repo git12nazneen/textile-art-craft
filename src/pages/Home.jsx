@@ -7,11 +7,12 @@ import Subcategory from '../components/Subcategory';
 import Banner from '../components/Banner';
 import CategoriesSecHeading from '../components/CategoriesSecHeading';
 import CartSecHeading from '../components/CartSecHeading';
+import Pagetitle from '../components/Pagetitle';
 
 const Home = () => {
     return (
         <div>
-            
+             <Pagetitle title='Textile Art Store'></Pagetitle>
             <Banner></Banner>
             <Trusted></Trusted>
             <CartSecHeading></CartSecHeading>

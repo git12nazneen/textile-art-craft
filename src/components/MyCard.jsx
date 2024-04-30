@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Pagetitle from './Pagetitle';
 
 
 const MyCard = ({ myCard, handleDelete }) => {
@@ -13,6 +14,7 @@ const MyCard = ({ myCard, handleDelete }) => {
 
     return (
         <div className="my-5">
+             <Pagetitle title='Addcraft'></Pagetitle>
             <div className="hero bg-white">
                 <div className="hero-content flex-col lg:flex-row-reverse max-w-2xl mx-auto bg-sky-100 rounded-xl">
                     <div className="flex-1">

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 
-const PageTitle = ({title}) => {
+const Pagetitle = ({title}) => {
     return (
      
             <Helmet>
@@ -12,4 +12,4 @@ const PageTitle = ({title}) => {
     );
 };
 
-export default PageTitle;
+export default Pagetitle;
