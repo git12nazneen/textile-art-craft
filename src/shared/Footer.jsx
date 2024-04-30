@@ -11,7 +11,7 @@ const Footer = () => {
 					<div className="flex items-center justify-center w-32 h-32 rounded-full ">
 						<img src={logoImage} alt="" />
 					</div>
-					<span className="self-center text-2xl font-semibold">Brand name</span>
+					<span className="self-center text-2xl font-semibold">Textile Store</span>
 				</a>
 			</div>
 			<div className="col-span-6   text-center md:text-left md:col-span-3">

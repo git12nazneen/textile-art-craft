@@ -25,12 +25,12 @@ const router = createBrowserRouter([
         {
             path:'/',
             element:<Home></Home>,
-            loader: ()=> fetch("http://localhost:5000/addCraft")
+            loader: ()=> fetch("https://art-craft-server-psi.vercel.app/addCraft")
         },
         {
             path:'/allArt',
             element:<AllArtCraft></AllArtCraft>,
-            loader:()=> fetch('http://localhost:5000/addCraft')
+            loader:()=> fetch('https://art-craft-server-psi.vercel.app/addCraft')
         },
         {
             path:'/addCraft',
@@ -39,22 +39,22 @@ const router = createBrowserRouter([
         {
             path:'/myArtCraft',
             element:<Privateroute><MyArtCraft></MyArtCraft></Privateroute>,
-            loader:()=> fetch('http://localhost:5000/addCraft')
+            loader:()=> fetch('https://art-craft-server-psi.vercel.app/addCraft')
         },
         {
           path:'/cartUpdated/:id',
           element:<Privateroute><CartUpdated></CartUpdated></Privateroute>,
-          loader: ({params}) => fetch(`http://localhost:5000/addCraft/${params.id}`)
+          loader: ({params}) => fetch(`https://art-craft-server-psi.vercel.app/addCraft/${params.id}`)
         },
         {
           path:'/craft/:id',
           element:<Privateroute><AllArtView></AllArtView></Privateroute>,
-          loader: ({params})=> fetch(`http://localhost:5000/craft/${params.id}`)
+          loader: ({params})=> fetch(`https://art-craft-server-psi.vercel.app/craft/${params.id}`)
         },
         {
           path:'/cartView/:id',
           element:<CartView></CartView>,
-          loader: ({params})=> fetch(`http://localhost:5000/addCraft/${params.id}`)
+          loader: ({params})=> fetch(`https://art-craft-server-psi.vercel.app/addCraft/${params.id}`)
         },
         {
           path:'/login',
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
           path: "/subcategory/embroidery",
           element: <SubCategoryPage></SubCategoryPage>,
           loader: async() =>{
-            const response = await fetch("http://localhost:5000/craft")
+            const response = await fetch("https://art-craft-server-psi.vercel.app/craft")
             const data = await response.json()
 
             const filterCategory = data.filter(
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
           path: "/subcategory/knitting&crocheting",
           element: <SubCategoryPage></SubCategoryPage>,
           loader: async() =>{
-            const response = await fetch("http://localhost:5000/craft")
+            const response = await fetch("https://art-craft-server-psi.vercel.app/craft")
             const data = await response.json()
 
             const filterCategory = data.filter(
@@ -102,7 +102,7 @@ const router = createBrowserRouter([
           path: "/subcategory/bedwork",  
           element: <SubCategoryPage></SubCategoryPage>,
           loader: async() =>{
-            const response = await fetch("http://localhost:5000/craft")
+            const response = await fetch("https://art-craft-server-psi.vercel.app/craft")
             const data = await response.json()
 
             const filterCategory = data.filter(
@@ -116,7 +116,7 @@ const router = createBrowserRouter([
           path: "/subcategory/quilting",  
           element: <SubCategoryPage></SubCategoryPage>,
           loader: async() =>{
-            const response = await fetch("http://localhost:5000/craft")
+            const response = await fetch("https://art-craft-server-psi.vercel.app/craft")
             const data = await response.json()
 
             const filterCategory = data.filter(
@@ -130,7 +130,7 @@ const router = createBrowserRouter([
           path: "/subcategory/tie-dyeing",  
           element: <SubCategoryPage></SubCategoryPage>,
           loader: async() =>{
-            const response = await fetch("http://localhost:5000/craft")
+            const response = await fetch("https://art-craft-server-psi.vercel.app/craft")
             const data = await response.json()
 
             const filterCategory = data.filter(
@@ -144,7 +144,7 @@ const router = createBrowserRouter([
           path: "/subcategory/macrame",  
           element: <SubCategoryPage></SubCategoryPage>,
           loader: async() =>{
-            const response = await fetch("http://localhost:5000/craft")
+            const response = await fetch("https://art-craft-server-psi.vercel.app/craft")
             const data = await response.json()
 
             const filterCategory = data.filter(

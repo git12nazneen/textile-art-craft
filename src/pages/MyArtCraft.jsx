@@ -12,7 +12,7 @@ const MyArtCraft = () => {
     const [cards, setCards] = useState([]);
     const myCards = useLoaderData();
     const [currentUserEmail, setCurrentUserEmail] = useState(null)
-    const [filterOption, setFilterOption] = useState('all'); // Default option is 'all'
+    // const [filterOption, setFilterOption] = useState('all'); // Default option is 'all'
 
 
 
@@ -26,14 +26,14 @@ const MyArtCraft = () => {
         setCards(myCards);
     }, [myCards]);
 
-// Filter cards based on the selected option
-useEffect(() => {
-    if (filterOption === 'all') {
-        setCards(myCards);
-    } else {
-        setCards(myCards.filter(card => card.customization === filterOption));
-    }
-}, [filterOption, myCards]);
+// // Filter cards based on the selected option
+// useEffect(() => {
+//     if (filterOption === 'all') {
+//         setCards(myCards);
+//     } else {
+//         setCards(myCards.filter(card => card.customization === filterOption));
+//     }
+// }, [filterOption, myCards]);
 
 
     const handleDelete = _id =>{
@@ -49,7 +49,7 @@ useEffect(() => {
               confirmButtonText: "Yes, delete it!"
             }).then((result) => {
               if (result.isConfirmed) {
-                 fetch(`http://localhost:5000/addCraft/${_id}`,{
+                 fetch(`https://art-craft-server-psi.vercel.app/addCraft/${_id}`,{
                     method:'DELETE'
                   })
         
@@ -70,10 +70,22 @@ useEffect(() => {
             });
         }
    
- // Handler for changing the filter option
- const handleFilterChange = event => {
-    setFilterOption(event.target.value);
-};
+//  // Handler for changing the filter option
+//  const handleFilterChange = event => {
+//     const selectedOption = event.target.value;
+//     // Update the filter option state
+//     setFilterOption(selectedOption);
+
+//     // Filter cards based on the selected option
+//     if (selectedOption === 'all') {
+//         setCards(myCards);
+//     } else {
+//         setCards(myCards.filter(card => {
+//             // Assuming card.customization contains 'option1' or 'option2'
+//             return card.customization === selectedOption;
+//         }));
+//     }
+// };
 
     return (
         <div className=' max-w-6xl mx-auto bg-white my-10'>
@@ -81,15 +93,15 @@ useEffect(() => {
        
 
           {/* Dropdown menu for filter */}
-          <div className="my-4">
+          {/* <div className="my-4">
                 <label htmlFor="filter">Filter by Customization:</label>
                 <select id="filter" value={filterOption} onChange={handleFilterChange}>
                     <option value="all">All</option>
                     <option value="option1">Yes</option>
                     <option value="option2">No</option>
-                    {/* Add more options as needed */}
+                  
                 </select>
-            </div>
+            </div> */}
 
 
             <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-2  mx-auto">

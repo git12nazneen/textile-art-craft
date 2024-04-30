@@ -22,7 +22,7 @@ const AddCraft = () => {
        console.log(newAddCraft);
 
       //  send data to the server
-      fetch('http://localhost:5000/addCraft',{
+      fetch('https://art-craft-server-psi.vercel.app/addCraft',{
         method:'POST',
         headers:{
           'content-type':'application/json'
@@ -113,7 +113,21 @@ const AddCraft = () => {
                 <label htmlFor="item_name" className="text-sm">
                   Item name
                 </label>
-                <input
+                {/* <input
+                  id="item_name"
+                  name="item_name"
+                  type="text"
+                  placeholder="item_name"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 p-3"
+                /> */}
+                {/* <select name='item_name' className="select select-bordered w-full"
+                                    >
+                                    <option disabled >item_name</option>
+                                    <option selected={data.countryname === 'Bangladesh'}>Bangladesh</option>
+                                    <option selected={data.countryname === 'Thailand'}>Thailand</option>
+                                   </select> */}
+                 <input
+
                   id="item_name"
                   name="item_name"
                   type="text"

@@ -6,7 +6,7 @@ const Subcategory = () => {
   const [subCard, setSubCard] = useState()
   // const subcategory = useLoaderData();
   useEffect(()=>{
-    fetch("http://localhost:5000/subcategory")
+    fetch("https://art-craft-server-psi.vercel.app/subcategory")
     .then(res => res.json())
     .then(data=>{
      setSubCard(data)

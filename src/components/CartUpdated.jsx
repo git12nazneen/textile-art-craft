@@ -21,7 +21,7 @@ const CartUpdated = () => {
         const updatedCraft = { item_name, subcategory_Name, short_description, price, rating, processing_time, customization, stockStatus, image};
        console.log(updatedCraft);
 
-       fetch(`http://localhost:5000/addCraft/${loadedCraft._id}`,{
+       fetch(`https://art-craft-server-psi.vercel.app/addCraft/${loadedCraft._id}`,{
         method:'PUT',
         headers:{
             'content-type':'application/json'
