@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/cartView/:id',
-          element:<CartView></CartView>,
+          element:<Privateroute><CartView></CartView></Privateroute>,
           loader: ({params})=> fetch(`https://art-craft-server-psi.vercel.app/addCraft/${params.id}`)
         },
         {
