@@ -27,6 +27,7 @@ const SingleCard = ({ singleCard }) => {
           <p className="bg-white p-2 text-sm bg-purple rounded-sm">Stock :{stockStatus}</p>
           </div>
           <Link to={`/craft/${_id}`}> <button className="my-3 btn bg-purple-400">View Details</button> </Link>
+
           </div>
           <div className="flex-1">
             <img className="h-80 w-80 rounded-xl" src={image} alt="" />

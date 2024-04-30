@@ -6,7 +6,7 @@ const Update = () => {
       <section className="dark:bg-gray-100 dark:text-gray-800">
         <div className="container flex flex-col p-6 mx-auto">
           <h2 className="py-4 text-3xl font-bold text-center">
-            Temporibus elit
+           Textile features
           </h2>
           <div className="divide-y dark:divide-gray-300">
             <div className="grid justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0">
@@ -24,16 +24,13 @@ const Update = () => {
               </div>
               <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
                 <span className="text-xs tracking-wider uppercase dark:text-violet-600">
-                  Step 1 - Nihil
+                Features 1
                 </span>
                 <span className="text-xl font-bold md:text-2xl">
-                  Veritatis dolores
+                Wide Range of Products
                 </span>
                 <span className="mt-4 dark:text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aperiam facilis, voluptates error alias dolorem praesentium
-                  sit soluta iure incidunt labore explicabo eaque, quia
-                  architecto veritatis dolores, enim cons equatur nihil ipsum.
+                Textile stores typically offer a wide variety of products such as fabrics, textiles, yarns, threads, and accessories like buttons, zippers, and ribbons.
                 </span>
               </div>
             </div>
@@ -51,16 +48,13 @@ const Update = () => {
               </div>
               <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
                 <span className="text-xs tracking-wider uppercase dark:text-violet-600">
-                  Step 2 - Explicabo
+                Features 2
                 </span>
                 <span className="text-xl font-bold md:text-2xl">
-                  Iure incidunt labore
+                Fabric Selection:
                 </span>
                 <span className="mt-4 dark:text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aperiam facilis, voluptates error alias dolorem praesentium
-                  sit soluta iure incidunt labore explicabo eaque, quia
-                  architecto veritatis dolores, enim cons equatur nihil ipsum.
+                  They often carry different types of fabrics including cotton, silk, linen, wool, polyester, and blends in various colors, patterns, and textures.
                 </span>
               </div>
             </div>
@@ -78,16 +72,13 @@ const Update = () => {
               </div>
               <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
                 <span className="text-xs tracking-wider uppercase dark:text-violet-600">
-                  Step 3 - Facilis
+                Features 3
                 </span>
                 <span className="text-xl font-bold md:text-2xl">
-                  Dolorem praesentium
+                Specialty Fabrics:
                 </span>
                 <span className="mt-4 dark:bg-gray-100 dark:text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aperiam facilis, voluptates error alias dolorem praesentium
-                  sit soluta iure incidunt labore explicabo eaque, quia
-                  architecto veritatis dolores, enim cons equatur nihil ipsum.
+                Some textile stores specialize in specific types of fabrics such as upholstery fabrics, quilting fabrics, bridal fabrics, or eco-friendly fabrics.
                 </span>
               </div>
             </div>
@@ -106,16 +97,13 @@ const Update = () => {
               </div>
               <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
                 <span className="text-xs tracking-wider uppercase dark:text-violet-600">
-                  Step 4 - Aperiam
+                  Features 4 
                 </span>
                 <span className="text-xl font-bold md:text-2xl">
-                  Explicabo eaque
+                Patterns and Books
                 </span>
                 <span className="mt-4 dark:text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aperiam facilis, voluptates error alias dolorem praesentium
-                  sit soluta iure incidunt labore explicabo eaque, quia
-                  architecto veritatis dolores, enim cons equatur nihil ipsum.
+                Some textile stores sell sewing patterns, pattern books, and instructional books to assist customers with their sewing projects.
                 </span>
               </div>
             </div>

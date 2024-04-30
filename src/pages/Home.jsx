@@ -5,6 +5,8 @@ import Update from '../components/Update';
 import Subscribe from '../components/Subscribe';
 import Subcategory from '../components/Subcategory';
 import Banner from '../components/Banner';
+import CategoriesSecHeading from '../components/CategoriesSecHeading';
+import CartSecHeading from '../components/CartSecHeading';
 
 const Home = () => {
     return (
@@ -12,7 +14,9 @@ const Home = () => {
             
             <Banner></Banner>
             <Trusted></Trusted>
+            <CartSecHeading></CartSecHeading>
             <CardItems></CardItems>
+            <CategoriesSecHeading></CategoriesSecHeading>
             <Subcategory></Subcategory>
             <Subscribe></Subscribe>
             <Update></Update>

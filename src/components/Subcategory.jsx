@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import SubCard from "./SubCard";
 
 const Subcategory = () => {
-  const subcategory = useLoaderData();
-  console.log(subcategory)
+  const [subCard, setSubCard] = useState()
+  // const subcategory = useLoaderData();
+  useEffect(()=>{
+    fetch("http://localhost:5000/subcategory")
+    .then(res => res.json())
+    .then(data=>{
+     setSubCard(data)
+    })
+  },[])
+  console.log(subCard)
+  
   return (
-    <div>
-      <h2>Name of : {subcategory.length}</h2>
-      <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3 bg-gray-100 mx-auto">
-        {subcategory.map((subItem) => (
-          <SubCard key={subItem._id} subItem={subItem}></SubCard>
-        ))}
-      </div>
+    <div className="bg-gray-100">
+      {/* <h2>Name of : {subCard.length}</h2> */}
+       <div className="max-w-6xl grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3  mx-auto">
+      {
+       subCard  && subCard.map((item) => (
+          <SubCard key={item._id} item={item}>
+            
+
+          </SubCard>
+        ))
+      }
+       </div> 
     </div>
   );
 };

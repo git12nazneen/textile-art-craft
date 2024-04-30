@@ -13,6 +13,7 @@ import Register from "../pages/Register";
 import CartUpdated from "../components/CartUpdated";
 import Privateroute from "./Privateroute";
 import Subcategory from "../components/Subcategory";
+import SubCategoryPage from "../pages/SubCategoryPage";
 
 
 const router = createBrowserRouter([
@@ -66,10 +67,98 @@ const router = createBrowserRouter([
         {
           path:'/subcategory',
           element:<Subcategory></Subcategory>,
-          loader:()=> fetch('http://localhost:5000/subcategory')
-        }
+        },
+         {
+          path: "/subcategory/embroidery",
+          element: <SubCategoryPage></SubCategoryPage>,
+          loader: async() =>{
+            const response = await fetch("http://localhost:5000/craft")
+            const data = await response.json()
+
+            const filterCategory = data.filter(
+              (craft) => craft.subcategory_Name ==="Embroidery"
+            )
+
+            return filterCategory
+          }
+
+        },
+        {
+          path: "/subcategory/knitting&crocheting",
+          element: <SubCategoryPage></SubCategoryPage>,
+          loader: async() =>{
+            const response = await fetch("http://localhost:5000/craft")
+            const data = await response.json()
+
+            const filterCategory = data.filter(
+              (craft) => craft.subcategory_Name ==="Knitting & Crocheting"
+            )
+
+            return filterCategory
+          }
+
+        },
+        {
+          path: "/subcategory/bedwork",  
+          element: <SubCategoryPage></SubCategoryPage>,
+          loader: async() =>{
+            const response = await fetch("http://localhost:5000/craft")
+            const data = await response.json()
+
+            const filterCategory = data.filter(
+              (craft) => craft.subcategory_Name ==="Bedwork" 
+            )
+
+            return filterCategory
+          }
+
+        },{
+          path: "/subcategory/quilting",  
+          element: <SubCategoryPage></SubCategoryPage>,
+          loader: async() =>{
+            const response = await fetch("http://localhost:5000/craft")
+            const data = await response.json()
+
+            const filterCategory = data.filter(
+              (craft) => craft.subcategory_Name ==="Quilting" 
+            )
+
+            return filterCategory
+          }
+
+        },{
+          path: "/subcategory/tie-dyeing",  
+          element: <SubCategoryPage></SubCategoryPage>,
+          loader: async() =>{
+            const response = await fetch("http://localhost:5000/craft")
+            const data = await response.json()
+
+            const filterCategory = data.filter(
+              (craft) => craft.subcategory_Name ==="Tie-dyeing" 
+            )
+
+            return filterCategory
+          }
+
+        },{
+          path: "/subcategory/macrame",  
+          element: <SubCategoryPage></SubCategoryPage>,
+          loader: async() =>{
+            const response = await fetch("http://localhost:5000/craft")
+            const data = await response.json()
+
+            const filterCategory = data.filter(
+              (craft) => craft.subcategory_Name ==="Macrame" 
+            )
+
+            return filterCategory
+          }
+
+        },
       ]
     },
   ]);
 
 export default router;
+
+// subcategory/macrame
